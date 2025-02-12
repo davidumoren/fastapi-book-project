@@ -36,6 +36,9 @@ jobs:
           cd fastapi-book-project || exit 1  # Ensure the folder exists
           git pull origin main  # Pull latest code
 
+          # Ensure Docker daemon is running
+          sudo systemctl start docker
+
           # Stop and remove old container if it exists
           sudo docker stop fastapi_container || true
           sudo docker rm fastapi_container || true
